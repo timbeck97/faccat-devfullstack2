@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes da Vaga</title>
+</head>
+<body>
+    <h1>Detalhes da Vaga</h1>
+
+    <div class="detalhe">
+        <p><strong>Título:</strong> {{ vaga.titulo }}</p>
+        <p><strong>Área:</strong> {{ vaga.get_area_display }}</p>
+        <p><strong>Tipo de Contrato:</strong> {{ vaga.get_tipo_contrato_display }}</p>
+        <p><strong>Descrição:</strong> {{ vaga.descricao }}</p>
+    </div>
+
+    <a href="{% url 'candidatos' %}">Voltar para a lista de candidatos</a>
+</body>
+</html>

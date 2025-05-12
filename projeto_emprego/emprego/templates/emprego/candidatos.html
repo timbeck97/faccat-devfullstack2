@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidatos</title>
+</head>
+
+<body>
+    <h1>Lista de Candidatos</h1>
+    <a href="{% url 'novo_candidato' %}">Novo Candidato</a>
+    <a href="{% url 'nova_vaga' %}">Nova Vaga</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Gênero</th>
+                <th>Vaga</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for candidato in candidatos %}
+            <tr>
+                <td><a href="{% url 'detalhar_candidato' candidato.id%}">{{ candidato.nome }}</a></td>
+                <td>{{ candidato.sobrenome }}</td>
+                <td>{{ candidato.get_genero_display }}</td>
+                <td><a href="{% url 'detalhar_vaga' candidato.vaga.id%}">{{ candidato.vaga.titulo }}</a></td>
+            </tr>
+            {% empty %}
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>
